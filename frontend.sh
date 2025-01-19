@@ -53,7 +53,7 @@ cd /usr/share/nginx/html
 
 VALIDATE $? Changing_directory
 
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>$LOGFILE_NAME
 
 VALIDATE $? setting_content
 
