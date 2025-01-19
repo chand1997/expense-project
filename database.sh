@@ -56,7 +56,7 @@ mysql -h 98.81.200.199  -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE_N
 
 if [ $? -eq 0 ]
 then
-echo "the Password has already been set"
+echo -e "$Y The Password has already been set $N"
 exit 1
 fi
 
