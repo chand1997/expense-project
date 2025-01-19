@@ -39,15 +39,12 @@ VALIDATE $? Installing_nodejs
 
 id expense | grep -q "expense"
 
-if [ $? -eq 0]
-then
-echo "User already exists"
+if [ $? -eq 0 ]; then
+    echo "User already exists"
 else
-useradd expense &>>$LOGFILE_NAME 
-VALIDATE $? Adding_user
+    useradd expense &>>$LOGFILE_NAME
+    VALIDATE $? Adding_user
 fi
-
-
 
 mkdir -p /app &>>$LOGFILE_NAME
 
@@ -89,30 +86,10 @@ dnf install mysql -y &>>$LOGFILE_NAME
 
 VALIDATE $? Installing_Mysql_client
 
-mysql -h 98.81.200.199 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE_NAME
+mysql -h 98.81.200.199 -uroot -pExpenseApp@1 </app/schema/backend.sql &>>$LOGFILE_NAME
 
 VALIDATE $? Loading_Schema
 
 systemctl restart backend &>>$LOGFILE_NAME
 
 VALIDATE $? Restarting_backend
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
