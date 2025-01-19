@@ -50,6 +50,8 @@ mkdir -p /app &>>$LOGFILE_NAME
 
 VALIDATE $? Creating_directory_App
 
+
+
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE_NAME
 
 VALIDATE $? Copying_code_from_source
@@ -57,6 +59,8 @@ VALIDATE $? Copying_code_from_source
 cd /app
 
 VALIDATE $? Changing_directory_to_app
+
+rm -rf /app/*
 
 unzip /tmp/backend.zip &>>$LOGFILE_NAME
 
