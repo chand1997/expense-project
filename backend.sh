@@ -40,7 +40,7 @@ VALIDATE $? Installing_nodejs
 id expense | grep -q "expense"
 
 if [ $? -eq 0 ]; then
-    echo "User already exists $Y SKIPPING $N "
+    echo -e "User already exists $Y SKIPPING $N "
 else
     useradd expense &>>$LOGFILE_NAME
     VALIDATE $? Adding_user
