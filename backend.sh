@@ -70,7 +70,7 @@ npm install &>>$LOGFILE_NAME
 
 VALIDATE $? Installing_dependencies
 
-cp -p /home/ec2-user/expense-project/backend.service /etc/systemd/system/backend.service &>>$LOGFILE_NAME
+cp /home/ec2-user/expense-project/backend.service /etc/systemd/system/backend.service &>>$LOGFILE_NAME
 
 VALIDATE $? Creating_backend_service
 
