@@ -53,6 +53,10 @@ cd /usr/share/nginx/html
 
 VALIDATE $? Changing_directory
 
+unzip /tmp/frontend.zip
+
+VALIDATE $? setting_content
+
 cp /home/ec2-user/expense-project/expense.conf /etc/nginx/default.d/expense.conf &>>$LOGFILE_NAME
 
 VALIDATE $? Copying_configuration_file
@@ -60,12 +64,3 @@ VALIDATE $? Copying_configuration_file
 systemctl restart nginx
 
 VALIDATE $? Restarting_nginx
-
-
-
-
-
-
-
-
-
