@@ -53,6 +53,10 @@ cd /app
 
 VALIDATE $? Changing_directory_to_app
 
+unzip /tmp/backend.zip
+
+cd /app
+
 npm install &>>$LOGFILE_NAME
 
 VALIDATE $? Installing_dependencies
