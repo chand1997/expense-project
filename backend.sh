@@ -40,7 +40,7 @@ VALIDATE $? Installing_nodejs
 id expense | grep -q "expense"
 
 if [ $? -eq 0 ]; then
-    echo "User already exists"
+    echo "User already exists $Y SKIPPING $N "
 else
     useradd expense &>>$LOGFILE_NAME
     VALIDATE $? Adding_user
@@ -49,8 +49,6 @@ fi
 mkdir -p /app &>>$LOGFILE_NAME
 
 VALIDATE $? Creating_directory_App
-
-
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE_NAME
 
@@ -61,6 +59,8 @@ cd /app
 VALIDATE $? Changing_directory_to_app
 
 rm -rf /app/*
+
+VALIDATE $? Removing_previous_code
 
 unzip /tmp/backend.zip &>>$LOGFILE_NAME
 
