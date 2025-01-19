@@ -52,7 +52,7 @@ systemctl enable mysqld &>>$LOGFILE_NAME
 
 VALIDATE $? Enabling_Mysql
 
-mysql -h 98.81.200.199  -uroot -pExpenseApp@1 -e 'show databases;'
+mysql -h 98.81.200.199  -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE_NAME
 
 if [ $? -eq 0 ]
 then
