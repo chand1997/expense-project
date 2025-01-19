@@ -54,7 +54,7 @@ VALIDATE $? Enabling_Mysql
 
 mysql -h 98.81.200.199  -uroot -pExpenseApp@1 -e 'show databases;'
 
-if [ $? -ne 0 ]
+if [ $? -eq 0 ]
 then
 echo "Password already set up"
 exit 1
