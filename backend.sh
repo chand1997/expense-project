@@ -37,9 +37,17 @@ dnf install nodejs -y &>>$LOGFILE_NAME
 
 VALIDATE $? Installing_nodejs
 
-useradd expense &>>$LOGFILE_NAME 
+id expense | grep -q "expense"
 
+if [ $? -eq 0]
+then
+echo "User already exists"
+else
+useradd expense &>>$LOGFILE_NAME 
 VALIDATE $? Adding_user
+fi
+
+
 
 mkdir -p /app &>>$LOGFILE_NAME
 
