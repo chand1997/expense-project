@@ -52,6 +52,14 @@ systemctl enable mysqld &>>$LOGFILE_NAME
 
 VALIDATE $? Enabling_Mysql
 
+mysql -h 98.81.200.199  -uroot -pExpenseApp@1 -e 'show databases;'
+
+if [ $? -ne 0 ]
+then
+echo "Password already set up"
+exit 1
+fi
+
 mysql_secure_installation --set-root-pass ExpenseApp@1
 
 VALIDATE $? Setting_Root_Password
